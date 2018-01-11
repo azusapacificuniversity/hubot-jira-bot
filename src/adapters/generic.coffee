@@ -71,7 +71,7 @@ class GenericAdapter
         if message.author? and user.profile?.email is message.author.emailAddress
           @robot.logger.debug "JIRA Notification surpressed for #{user.name} because it would be a self-notification"
           continue
-        message.text += "\n#{message.footer}" if message.text and message.footer and @getDMCountFor(user) < 3
+        message.text += "\n#{message.footer}" if message.text and message.footer
         @send message: room: user.id, _(message).pick "attachments", "text"
         @incrementDMCountFor user
 
