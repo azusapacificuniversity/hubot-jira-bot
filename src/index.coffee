@@ -388,6 +388,8 @@ class JiraBot
       context.finish()
       [__, query] = context.match
       room = context.message.room
+      if room in Config.slack.roomsBlacklist
+        return
       project = Config.maps.projects[room]
       Jira.Search.withQueryForProject(query, project, context)
       .then (results) =>

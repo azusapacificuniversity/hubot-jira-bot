@@ -80,6 +80,7 @@ class Config
     verification: token: process.env.HUBOT_SLACK_VERIFICATION_TOKEN
     token: process.env.HUBOT_SLACK_TOKEN
     api: token: process.env.HUBOT_SLACK_API_TOKEN or process.env.HUBOT_SLACK_TOKEN
+    roomsBlacklist: process.env.HUBOT_JIRA_ROOMS_BLACKLIST.split " " or []
 
   @ticket:
     regex: new RegExp "(^|\\s)(" + Config.projects.prefixes + "-)(\\d+)\\b", "i"
